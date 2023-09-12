@@ -1,13 +1,14 @@
 import React from 'react';
 
-import {
-  storybookButton,
-  storybookButtonLarge,
-  storybookButtonMedium,
-  storybookButtonPrimary,
-  storybookButtonSecondary,
-  storybookButtonSmall,
-} from './button.css';
+// import {
+//   storybookButton,
+//   storybookButtonLarge,
+//   storybookButtonMedium,
+//   storybookButtonPrimary,
+//   storybookButtonSecondary,
+//   storybookButtonSmall,
+// } from './button.css';
+import { button, buttonPrimary, buttonSecondary } from './button.css'
 
 interface ButtonProps {
   /**
@@ -32,11 +33,11 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const sizeClasses = {
-  small: storybookButtonSmall,
-  medium: storybookButtonMedium,
-  large: storybookButtonLarge,
-};
+// const sizeClasses = {
+//   small: storybookButtonSmall,
+//   medium: storybookButtonMedium,
+//   large: storybookButtonLarge,
+// };
 
 /**
  * Primary UI component for user interaction
@@ -48,13 +49,13 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  const modeClass = primary ? storybookButtonPrimary : storybookButtonSecondary;
-  const sizeClass = sizeClasses[size];
+  const modeClass = primary ? buttonPrimary : buttonSecondary;
+  // const sizeClass = sizeClasses[size];
 
   return (
     <button
       type="button"
-      className={`${storybookButton} ${modeClass} ${sizeClass}`}
+      className={`${button} ${modeClass}`}
       style={{ backgroundColor }}
       {...props}
     >
