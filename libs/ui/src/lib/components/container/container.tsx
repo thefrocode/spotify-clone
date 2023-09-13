@@ -4,11 +4,12 @@ interface ContainerProps {
   backgroundColor?: string;
   flexDirection?: "row" | "column";
   children: React.ReactNode;
+  gap?: string;
 }
 
 
-export function Container({ children, backgroundColor, flexDirection }: ContainerProps) {
+export function Container({ children, backgroundColor, flexDirection, gap }: ContainerProps) {
   return (
-    <div className={`${container}`} style={{ backgroundColor, flexDirection }}>{children}</div>
+    <div className={`${container}`} style={{ backgroundColor, flexDirection, gap }}>{children}</div>
   );
 }

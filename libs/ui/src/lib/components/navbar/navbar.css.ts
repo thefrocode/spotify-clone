@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/theme.css';
 
 export const navbar = style({
-  gridRow: 'span 2 / span 2',
+  gridRow: 'span 1 / span 1',
   display: 'flex',
   flexDirection: 'column',
   margin: '0 auto',
@@ -11,6 +11,8 @@ export const navbar = style({
   fontFamily: vars.fonts.body,
   fontWeight: 700,
   fontSize: '1rem',
+  maxWidth: '100%',
+  minHeight: '0',
 });
 
 export const navbarItem = style({
