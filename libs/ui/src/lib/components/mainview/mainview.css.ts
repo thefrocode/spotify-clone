@@ -8,8 +8,9 @@ export const mainview = style({
     backgroundColor: vars.colors.primary,
     color: vars.colors.text.primary,
     height: calc.subtract('100vh','70px'),
-    overflowY: 'scroll',
+    overflowY: 'hidden',
     maxWidth: '100%',
     minHeight: '0',
+    minWidth: '0',
     
 });
