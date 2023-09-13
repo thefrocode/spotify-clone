@@ -1,16 +1,16 @@
 import styled from 'styled-components';
-
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import { Login } from '@spotify-clone/auth';
+import { routes } from '@spotify-clone/shared';
+import { Outlet, ReactLocation, Router } from "@tanstack/react-location";
+const location = new ReactLocation();
 
 export function App() {
   return (
-    <StyledApp>
-      <NxWelcome title="spotify-clone" />
-    </StyledApp>
+    <Router location={location} routes={routes}>
+      <div>
+        <Outlet />
+      </div>
+    </Router>
   );
 }
 

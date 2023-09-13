@@ -8,6 +8,11 @@ tmp
 # dependencies
 node_modules
 
+#local
+.env
+.gitignore
+
+
 # IDEs and editors
 /.idea
 .project
