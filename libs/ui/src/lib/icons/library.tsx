@@ -1,6 +1,6 @@
 import { vars } from "../styles/theme.css";
 
-export default function Library({
+export function Library({
   size = 18, // or any default size of your choice
   color = vars.colors.accent, // or any color of your choice
 }) {

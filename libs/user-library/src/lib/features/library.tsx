@@ -1,7 +1,4 @@
-import { Container } from '../container/container';
 import {
-  navbar,
-  navbarItem,
   navbarLibrary,
   navbarLibraryButton,
   navbarLibraryCategories,
@@ -12,34 +9,18 @@ import {
   navbarLibraryListItemTitle,
   navbarLibraryListItemDescription,
   navbarLibraryList,
-} from './navbar.css';
-import { FaHome, FaSearch, FaPlus } from 'react-icons/fa';
-import Library from '../../icons/library';
-import { Plus } from '../../icons/plus';
-import { Button } from '../button/button';
-import { Search } from '../../icons/search';
+} from '@spotify-clone/ui';
+import { Container, Button, Plus, Search, Library} from '@spotify-clone/ui';
+import { useSpotify } from '@spotify-clone/shared';
 import { useAlbum } from '@spotify-clone/albums';
 import { useEffect } from 'react';
-import { useSpotify } from '@spotify-clone/shared';
 
-interface NavbarItemProps {
-  label: string;
-  icon?: any;
-}
+
 interface LibraryItemProps {
   title: string;
   category: string;
   icon?: any;
   owner: string;
-}
-
-function NavbarItem({ label, icon }: NavbarItemProps) {
-  return (
-    <div className={`${navbarItem}`}>
-      {icon}
-      <div>{label}</div>
-    </div>
-  );
 }
 
 function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
@@ -53,10 +34,9 @@ function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
     </div>
   );
 }
-
-export function Navbar() {
+export function UserLibrary() {
   const { data: albums, fetchData: fetchAlbums } = useAlbum();
-  const { sdk, authenticate } = useSpotify();
+  const { sdk } = useSpotify();
   console.log(albums);
 
   useEffect(() => {
@@ -64,6 +44,7 @@ export function Navbar() {
       fetchAlbums(sdk);
     }
   }, [sdk]);
+
   const link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/`;
   const items = [
     {
@@ -123,48 +104,41 @@ export function Navbar() {
       icon: link + '6.png',
     },
   ];
-
   return (
-    <div className={`${navbar}`}>
-      <Container flexDirection="column" margin='0px'>
-        <NavbarItem label="Home" icon={<FaHome size={24} />} />
-
-        <NavbarItem label="Search" icon={<FaSearch size={24} />} />
-      </Container>
-      <Container flexDirection="column" margin='0px'>
-        <div className={`${navbarLibrary}`}>
-          <button className={`${navbarLibraryButton}`}>
-            <Library />
-            Your Library
-          </button>
-          <Plus />
-        </div>
-        <ul className={`${navbarLibraryCategories}`}>
-          {items.map((item) => {
-            return <Button primary={true} label={item.title} key={item.id} />;
-          })}
-        </ul>
-        <div className={`${navbarLibrarySearch}`}>
-          <Search />
-          <select className={`${navbarLibrarySearchSelect}`}>
-            <option value="1">Playlist</option>
-            <option value="2">Album</option>
-          </select>
-        </div>
-        <div className={`${navbarLibraryList}`}>
-          {libraryItems.map((item) => {
-            return (
-              <LibraryItem
-                key={item.id}
-                title={item.title}
-                category={item.category}
-                owner={item.owner}
-                icon={item.icon}
-              />
-            );
-          })}
-        </div>
-      </Container>
-    </div>
+    
+    <Container flexDirection="column" margin="0px">
+      <div className={`${navbarLibrary}`}>
+        <button className={`${navbarLibraryButton}`}>
+          <Library />
+          Your Library
+        </button>
+        <Plus />
+      </div>
+      <ul className={`${navbarLibraryCategories}`}>
+        {items.map((item) => {
+          return <Button primary={true} label={item.title} key={item.id} />;
+        })}
+      </ul>
+      <div className={`${navbarLibrarySearch}`}>
+        <Search />
+        <select className={`${navbarLibrarySearchSelect}`}>
+          <option value="1">Playlist</option>
+          <option value="2">Album</option>
+        </select>
+      </div>
+      <div className={`${navbarLibraryList}`}>
+        {libraryItems.map((item) => {
+          return (
+            <LibraryItem
+              key={item.id}
+              title={item.title}
+              category={item.category}
+              owner={item.owner}
+              icon={item.icon}
+            />
+          );
+        })}
+      </div>
+    </Container>
   );
 }

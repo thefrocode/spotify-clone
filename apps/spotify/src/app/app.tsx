@@ -1,4 +1,5 @@
-import { routes, SpotifyProvider } from '@spotify-clone/shared';
+import { SpotifyProvider } from '@spotify-clone/shared';
+import { routes } from '@spotify-clone/shell';
 import { Outlet, ReactLocation, Router } from '@tanstack/react-location';
 
 const location = new ReactLocation();

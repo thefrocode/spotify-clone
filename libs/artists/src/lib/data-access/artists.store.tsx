@@ -3,20 +3,19 @@ import { SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { Store } from '@spotify-clone/shared'
 
 /* eslint-disable-next-line */
-export interface AlbumStoreProps {}
+export interface ArtistStoreProps {}
 
-export const useAlbum = create<Store<AlbumStoreProps>>((set) => ({
+export const useArtist = create<Store<ArtistStoreProps>>((set) => ({
   data: [], // Initial state
   fetchData: async (sdk: SpotifyApi | null) => {
     try {
-      // Simulate an API call (replace this with your actual data fetching code)
-      const response = await sdk?.currentUser.albums.savedAlbums();
+      const response = await sdk?.currentUser.followedArtists();
       if (!response) {
         throw new Error('Failed to fetch data');
       }
 
       // Update the state with the fetched data
-      set({ data: response.items });
+      set({ data: response.artists.items });
     } catch (error) {
       console.error('Error fetching data:', error);
     }

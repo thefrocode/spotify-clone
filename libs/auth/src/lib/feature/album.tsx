@@ -13,7 +13,6 @@ export function SpotifySearch() {
         
         const results = await sdk?.search("The Beatles", ["artist"]);
         const albums = sdk?.albums
-        console.log(results)  
         setResults(() => results);      
       })();
     }, [sdk]);

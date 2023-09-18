@@ -1,10 +1,7 @@
 import { useSpotify } from '@spotify-clone/shared';
 import { useRef, useState } from 'react';
-import { BackButton } from '../../icons/back-button';
-import { ForwardButton } from '../../icons/forward-button';
-import { Profile } from '../../icons/profile';
-import { Search } from '../../icons/search';
-import { Container } from '../container/container';
+import { BackButton, ForwardButton, Search, Profile} from '@spotify-clone/ui';
+
 import {
   topbar,
   topbarContainers,
@@ -55,7 +52,7 @@ export function Topbar() {
                 {user && (
                   <>
                     <li>{user.display_name}</li>
-                    <hr/>
+                    <hr />
                     <li onClick={logout}>Log Out</li>
                   </>
                 )}

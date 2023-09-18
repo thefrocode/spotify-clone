@@ -13,7 +13,7 @@ export function Callback() {
             console.log(res);
         });
         const albums = sdk?.currentUser.albums
-        console.log(albums)
+        
 
     }, [sdk]);
   

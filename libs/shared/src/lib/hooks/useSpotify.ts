@@ -18,7 +18,7 @@ export function useSpotifySource(
 
   const authenticate = useCallback(() => {
     (async () => {
-        console.log(clientId, redirectUrl, activeScopes)
+    
       if (clientId && redirectUrl && activeScopes) {
         const auth = new AuthorizationCodeWithPKCEStrategy(
           clientId,

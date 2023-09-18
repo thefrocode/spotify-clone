@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { vars } from "../../styles/theme.css";
+import { vars } from '@spotify-clone/ui';
 import { calc } from '@vanilla-extract/css-utils';
 
 
