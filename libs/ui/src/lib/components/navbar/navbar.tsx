@@ -16,9 +16,11 @@ import {
 import { FaHome, FaSearch, FaPlus } from 'react-icons/fa';
 import Library from '../../icons/library';
 import { Plus } from '../../icons/plus';
-import { Button } from '../button/Button';
+import { Button } from '../button/button';
 import { Search } from '../../icons/search';
-import { time } from 'console';
+import { useAlbum } from '@spotify-clone/albums';
+import { useEffect } from 'react';
+import { useSpotify } from '@spotify-clone/shared';
 
 interface NavbarItemProps {
   label: string;
@@ -43,7 +45,7 @@ function NavbarItem({ label, icon }: NavbarItemProps) {
 function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
   return (
     <div className={`${navbarLibraryListItem}`}>
-      <img src={icon} alt="Alt"className={`${navbarLibraryListItemImage}`}/>
+      <img src={icon} alt="Alt" className={`${navbarLibraryListItemImage}`} />
       <div className={`${navbarLibraryListItemTitle}`}>{title}</div>
       <div className={`${navbarLibraryListItemDescription}`}>
         {category} &#8226; {owner}
@@ -53,40 +55,68 @@ function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
 }
 
 export function Navbar() {
-  const link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/`
-  const items = ['Playlists', 'Albums', 'Artists'];
+  const { data: albums, fetchData: fetchAlbums } = useAlbum();
+  const { sdk, authenticate } = useSpotify();
+  console.log(albums);
+
+  useEffect(() => {
+    if (sdk) {
+      fetchAlbums(sdk);
+    }
+  }, [sdk]);
+  const link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/`;
+  const items = [
+    {
+      id: 1,
+      title: 'Playlists',
+    },
+    {
+      id: 2,
+      title: 'Albums',
+    },
+    {
+      id: 3,
+      title: 'Artists',
+    },
+  ];
   const libraryItems = [
     {
+      id: 1,
       title: 'Playlist 1',
       category: 'Playlist',
       owner: 'Owner 1',
       icon: link + '1.png',
     },
     {
+      id: 2,
       title: 'Playlist 2',
       category: 'Playlist',
       owner: 'Owner 1',
       icon: link + '2.png',
     },
     {
+      id: 3,
       title: 'Playlist 3',
       category: 'Playlist',
       owner: 'Owner 1',
       icon: link + '3.png',
     },
     {
+      id: 4,
       title: 'Playlist 4',
       category: 'Playlist',
       owner: 'Owner 1',
       icon: link + '4.png',
     },
     {
+      id: 5,
       title: 'Playlist 5',
       category: 'Playlist',
       owner: 'Owner 1',
       icon: link + '5.png',
     },
     {
+      id: 6,
       title: 'Playlist 6',
       category: 'Playlist',
       owner: 'Owner 1',
@@ -96,6 +126,7 @@ export function Navbar() {
 
   return (
     <div className={`${navbar}`}>
+      <button onClick={authenticate}></button>
       <Container flexDirection="column">
         <NavbarItem label="Home" icon={<FaHome size={24} />} />
 
@@ -111,7 +142,7 @@ export function Navbar() {
         </div>
         <ul className={`${navbarLibraryCategories}`}>
           {items.map((item) => {
-            return <Button primary={true} label={item} />;
+            return <Button primary={true} label={item.title} key={item.id} />;
           })}
         </ul>
         <div className={`${navbarLibrarySearch}`}>
@@ -125,6 +156,7 @@ export function Navbar() {
           {libraryItems.map((item) => {
             return (
               <LibraryItem
+                key={item.id}
                 title={item.title}
                 category={item.category}
                 owner={item.owner}
