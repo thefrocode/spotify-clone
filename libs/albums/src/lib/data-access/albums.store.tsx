@@ -1,11 +1,11 @@
 import { create } from 'zustand';
-import { SpotifyApi } from '@spotify/web-api-ts-sdk';
+import { SavedAlbum, SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { Store } from '@spotify-clone/shared'
 
 /* eslint-disable-next-line */
 export interface AlbumStoreProps {}
 
-export const useAlbum = create<Store<AlbumStoreProps>>((set) => ({
+export const useAlbum = create<Store<SavedAlbum>>((set) => ({
   data: [], // Initial state
   fetchData: async (sdk: SpotifyApi | null) => {
     try {

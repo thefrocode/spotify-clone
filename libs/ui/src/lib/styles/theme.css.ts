@@ -21,6 +21,7 @@ export const vars = createGlobalTheme(":root", {
       primary: "#ffffff",
       secondary: "#535353",
       tertiary: "#FFFFFFE6",
+      subdued: "#a7a7a7"
     },
   },
 });

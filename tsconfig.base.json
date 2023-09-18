@@ -18,6 +18,7 @@
       "@spotify-clone/albums": ["libs/albums/src/index.ts"],
       "@spotify-clone/artists": ["libs/artists/src/index.ts"],
       "@spotify-clone/auth": ["libs/auth/src/index.ts"],
+      "@spotify-clone/playlists": ["libs/playlists/src/index.ts"],
       "@spotify-clone/shared": ["libs/shared/src/index.ts"],
       "@spotify-clone/shell": ["libs/shell/src/index.ts"],
       "@spotify-clone/shows": ["libs/shows/src/index.ts"],

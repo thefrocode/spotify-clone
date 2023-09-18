@@ -1,15 +1,15 @@
 import { create } from 'zustand';
-import { SavedShow, SpotifyApi } from '@spotify/web-api-ts-sdk';
+import { SimplifiedPlaylist, SpotifyApi } from '@spotify/web-api-ts-sdk';
 import { Store } from '@spotify-clone/shared';
 
 /* eslint-disable-next-line */
-export interface ShowStoreProps {}
+export interface PlaylistStoreProps {}
 
-export const useShow = create<Store<SavedShow>>((set) => ({
+export const usePlaylist = create<Store<SimplifiedPlaylist>>((set) => ({
   data: [], // Initial state
   fetchData: async (sdk: SpotifyApi | null) => {
     try {
-      const response = await sdk?.currentUser.shows.savedShows();
+      const response = await sdk?.currentUser.playlists.playlists();
       if (!response) {
         throw new Error('Failed to fetch data');
       }

@@ -9,43 +9,42 @@ import {
   navbarLibraryListItemTitle,
   navbarLibraryListItemDescription,
   navbarLibraryList,
+  navbarLibraryListItemArtistImage,
 } from '@spotify-clone/ui';
 import { Container, Button, Plus, Search, Library} from '@spotify-clone/ui';
 import { useSpotify } from '@spotify-clone/shared';
 import { useAlbum } from '@spotify-clone/albums';
 import { useEffect } from 'react';
+import { useUserLibrary } from '../data-access/user-library.store';
 
 
 interface LibraryItemProps {
-  title: string;
-  category: string;
+  title?: string;
+  category?: string;
   icon?: any;
-  owner: string;
+  owner?: string;
 }
 
+
 function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
+  const imageStyle = category==='artist'? navbarLibraryListItemArtistImage: navbarLibraryListItemImage
   return (
     <div className={`${navbarLibraryListItem}`}>
-      <img src={icon} alt="Alt" className={`${navbarLibraryListItemImage}`} />
+      <img src={icon} alt="Alt" className={`${imageStyle}`} />
       <div className={`${navbarLibraryListItemTitle}`}>{title}</div>
       <div className={`${navbarLibraryListItemDescription}`}>
-        {category} &#8226; {owner}
+        {category && category.charAt(0).toUpperCase() + category.slice(1)} {owner ? <>&#8226; {owner}</> : null}
       </div>
     </div>
   );
 }
 export function UserLibrary() {
-  const { data: albums, fetchData: fetchAlbums } = useAlbum();
-  const { sdk } = useSpotify();
-  console.log(albums);
+  
+    const { library } = useUserLibrary();
+  console.log(library);
 
-  useEffect(() => {
-    if (sdk) {
-      fetchAlbums(sdk);
-    }
-  }, [sdk]);
+  
 
-  const link = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/`;
   const items = [
     {
       id: 1,
@@ -60,50 +59,7 @@ export function UserLibrary() {
       title: 'Artists',
     },
   ];
-  const libraryItems = [
-    {
-      id: 1,
-      title: 'Playlist 1',
-      category: 'Playlist',
-      owner: 'Owner 1',
-      icon: link + '1.png',
-    },
-    {
-      id: 2,
-      title: 'Playlist 2',
-      category: 'Playlist',
-      owner: 'Owner 1',
-      icon: link + '2.png',
-    },
-    {
-      id: 3,
-      title: 'Playlist 3',
-      category: 'Playlist',
-      owner: 'Owner 1',
-      icon: link + '3.png',
-    },
-    {
-      id: 4,
-      title: 'Playlist 4',
-      category: 'Playlist',
-      owner: 'Owner 1',
-      icon: link + '4.png',
-    },
-    {
-      id: 5,
-      title: 'Playlist 5',
-      category: 'Playlist',
-      owner: 'Owner 1',
-      icon: link + '5.png',
-    },
-    {
-      id: 6,
-      title: 'Playlist 6',
-      category: 'Playlist',
-      owner: 'Owner 1',
-      icon: link + '6.png',
-    },
-  ];
+  
   return (
     
     <Container flexDirection="column" margin="0px">
@@ -127,14 +83,13 @@ export function UserLibrary() {
         </select>
       </div>
       <div className={`${navbarLibraryList}`}>
-        {libraryItems.map((item) => {
+        {library.map((item) => {
           return (
             <LibraryItem
-              key={item.id}
-              title={item.title}
-              category={item.category}
-              owner={item.owner}
-              icon={item.icon}
+              title={item.album?.name || item.show?.name || item.name}
+              category={item.album?.type || item.show?.type || item.type}
+              owner={item.album?.label || item.show?.publisher}
+              icon={item.album?.images[2].url || item.show?.images[2].url || item.images[2]?.url || item.images[0].url}
             />
           );
         })}

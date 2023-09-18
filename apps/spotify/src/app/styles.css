@@ -1,0 +1,19 @@
+/* This is a regular CSS file */
+/* Define your scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust the width of the scrollbar as needed */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5A5A5A;
+  padding: 0px;
+  margin: 0px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #5A5A5A
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5A5A5A
+}
