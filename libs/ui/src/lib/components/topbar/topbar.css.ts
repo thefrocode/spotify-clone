@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '../../styles/theme.css';
 
 export const topbar = style({
@@ -56,18 +56,33 @@ export const topbarSearchInput = style({
   },
 });
 
+export const topbarProfile = style({
+  position: 'relative',
+  display: 'inline-block',
+  float: 'right',
+});
 export const topbarProfileDropdown = style({
   position: 'absolute',
   display: 'none',
   zIndex: 1,
+  right: 0,
+  backgroundColor: '#242424',
+  top: 40,
+  minWidth: '160px',
+  padding: '4px',
+  fontWeight: 400,
 });
 
-export const topbarProfile = style({
-  position: 'relative',
-  display: 'inline-block',
-  ':hover': {
-    [topbarProfileDropdown]: {
-      display: 'block',
-    },
-  },
+export const topbarProfileDropdownContent = style({
+    listStyleType: 'none',
+    paddingInlineStart: '0px',
+    padding: '4px 8px',
+});
+
+globalStyle(`${topbarProfileDropdownContent} > li`, {
+  
+  paddingInlineStart: '0px',
+  fontFamily: vars.fonts.body,
+  color: vars.colors.text.tertiary,
+  fontSize: '14px',
 });

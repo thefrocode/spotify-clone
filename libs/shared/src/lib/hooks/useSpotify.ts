@@ -2,6 +2,7 @@ import {
   SdkOptions,
   SpotifyApi,
   AuthorizationCodeWithPKCEStrategy,
+  UserProfile,
 } from '@spotify/web-api-ts-sdk';
 import { useCallback, useRef, useState } from 'react';
 
@@ -12,6 +13,7 @@ export function useSpotifySource(
   config?: SdkOptions
 ) {
   const [sdk, setSdk] = useState<SpotifyApi | null>(null);
+  const [user, setUser] = useState<UserProfile | null>(null)
   const { current: activeScopes } = useRef(scopes);
 
   const authenticate = useCallback(() => {
@@ -30,6 +32,8 @@ export function useSpotifySource(
 
           if (authenticated) {
             setSdk(() => internalSdk);
+            const user = await internalSdk.currentUser.profile()
+            setUser(user)
           }
         } catch (e: Error | unknown) {
           const error = e as Error;
@@ -50,5 +54,19 @@ export function useSpotifySource(
     })();
   }, [clientId, redirectUrl, config, activeScopes]);
 
-  return { sdk, authenticate };
+  const logout = useCallback(() => {
+    if(sdk){
+        try{
+            sdk.logOut()
+            setSdk(null)
+            setUser(null)
+        }catch(e: Error | unknown){
+            const error = e as Error;
+            console.log(error)
+        }
+        
+    }
+  }, [sdk]);
+
+  return { sdk, authenticate, user, logout };
 }

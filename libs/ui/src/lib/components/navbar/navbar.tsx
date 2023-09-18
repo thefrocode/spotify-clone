@@ -126,13 +126,12 @@ export function Navbar() {
 
   return (
     <div className={`${navbar}`}>
-      <button onClick={authenticate}></button>
-      <Container flexDirection="column">
+      <Container flexDirection="column" margin='0px'>
         <NavbarItem label="Home" icon={<FaHome size={24} />} />
 
         <NavbarItem label="Search" icon={<FaSearch size={24} />} />
       </Container>
-      <Container flexDirection="column">
+      <Container flexDirection="column" margin='0px'>
         <div className={`${navbarLibrary}`}>
           <button className={`${navbarLibraryButton}`}>
             <Library />

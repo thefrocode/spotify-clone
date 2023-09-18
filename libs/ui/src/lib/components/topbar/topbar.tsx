@@ -1,3 +1,5 @@
+import { useSpotify } from '@spotify-clone/shared';
+import { useRef, useState } from 'react';
 import { BackButton } from '../../icons/back-button';
 import { ForwardButton } from '../../icons/forward-button';
 import { Profile } from '../../icons/profile';
@@ -9,11 +11,25 @@ import {
   topbarIcons,
   topbarProfile,
   topbarProfileDropdown,
+  topbarProfileDropdownContent,
   topbarSearch,
   topbarSearchInput,
 } from './topbar.css';
 
 export function Topbar() {
+  const profileDropDown = useRef<HTMLDivElement | null>(null);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const { user, authenticate, logout } = useSpotify();
+
+  function handleProfileClick() {
+    if (isDropdownVisible && profileDropDown.current) {
+      profileDropDown.current.style.display = 'none';
+    } else if (!isDropdownVisible && profileDropDown.current) {
+      profileDropDown.current.style.display = 'block';
+    }
+    setIsDropdownVisible(!isDropdownVisible);
+  }
+
   return (
     <div className={`${topbar}`}>
       <div className={`${topbarContainers}`}>
@@ -31,13 +47,20 @@ export function Topbar() {
       </div>
 
       <div className={`${topbarContainers} ${topbarProfile}`}>
-        <div className={`${topbarIcons}`}>
+        <div className={`${topbarIcons}`} onClick={handleProfileClick}>
           <div>
             <Profile />
-            <div className={`${topbarProfileDropdown}`}>
-              <a href="#">Link 1</a>
-              <a href="#">Link 2</a>
-              <a href="#">Link 3</a>
+            <div ref={profileDropDown} className={`${topbarProfileDropdown}`}>
+              <ul className={`${topbarProfileDropdownContent}`}>
+                {user && (
+                  <>
+                    <li>{user.display_name}</li>
+                    <hr/>
+                    <li onClick={logout}>Log Out</li>
+                  </>
+                )}
+                {!user && <li onClick={authenticate}>Log In</li>}
+              </ul>
             </div>
           </div>
         </div>

@@ -5,5 +5,6 @@ export const shell = style({
     gridTemplateColumns: "280px 1fr",
     gridTemplateRows: "1fr 72px",
     height: "100vh",
-    overflowY: "scroll",
+    overflow: "hidden",
+    gap: '8px'
 })

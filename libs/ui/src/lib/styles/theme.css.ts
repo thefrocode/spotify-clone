@@ -19,7 +19,8 @@ export const vars = createGlobalTheme(":root", {
     tertiary: "#121212",
     text: {
       primary: "#ffffff",
-      secondary: "#535353"
+      secondary: "#535353",
+      tertiary: "#FFFFFFE6",
     },
   },
 });

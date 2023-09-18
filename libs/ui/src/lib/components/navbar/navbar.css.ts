@@ -13,6 +13,7 @@ export const navbar = style({
   fontSize: '1rem',
   maxWidth: '100%',
   minHeight: '0',
+  rowGap: '8px',
 });
 
 export const navbarItem = style({

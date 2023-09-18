@@ -10,7 +10,7 @@ export function Shell() {
     <div className={`${shell}`}>
       <Navbar />
       <Container flexDirection='column'
-      gap='12px'>
+      gap='12px' margin='0px'>
         <Topbar />
         <MainView />
       </Container>
