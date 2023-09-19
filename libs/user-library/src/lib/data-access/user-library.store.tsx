@@ -1,10 +1,11 @@
-import { useSpotify } from '@spotify-clone/shared';
+import { Store, useSpotify } from '@spotify-clone/shared';
 import { useAlbum } from '@spotify-clone/albums';
 import { useArtist } from '@spotify-clone/artists';
 import { useShow } from '@spotify-clone/shows';
 import { usePlaylist } from '@spotify-clone/playlists';
 import { useEffect, useMemo } from 'react';
-import { Album, SavedAlbum, SavedShow, SimplifiedPlaylist, SimplifiedShow } from '@spotify/web-api-ts-sdk';
+import { Album, Artist, SavedShow, SimplifiedPlaylist, SimplifiedShow, SpotifyApi } from '@spotify/web-api-ts-sdk';
+import { create } from 'zustand';
 
 interface UserLibraryListItem extends SimplifiedPlaylist, Artist{
     added_at?: string;
@@ -13,6 +14,7 @@ interface UserLibraryListItem extends SimplifiedPlaylist, Artist{
 
 }
 export function useUserLibrary() {
+  
   const { sdk } = useSpotify();
   const { data: albums, fetchData: fetchAlbums } = useAlbum();
   const { data: artists, fetchData: fetchArtists } = useArtist();
@@ -38,6 +40,6 @@ export function useUserLibrary() {
   }, [albums, artists, shows, playlists]);
 
   return {
-    library: userLibraryItems,
+    library: userLibraryItems
   };
 }

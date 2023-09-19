@@ -1,6 +1,6 @@
-import { Home } from '../../../../ui/src/lib/components/home/home';
-import { mainview } from './mainview.css';
+import { Outlet } from '@tanstack/react-location';
+
 
 export function MainView() {
-  return <Home />;
+  return <Outlet />;
 }
