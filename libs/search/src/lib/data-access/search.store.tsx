@@ -1,41 +1,35 @@
-import { Store } from '@spotify-clone/shared';
-import { SavedAlbum, SpotifyApi } from '@spotify/web-api-ts-sdk';
+import { Album, Artist, Episode, Playlist, Show, SpotifyApi, Track } from '@spotify/web-api-ts-sdk';
 import { create } from 'zustand';
 
+interface SearchResults{
+  albums?: Album[],
+  artists?: Artist[], 
+  playlists?: Playlist[],
+  shows?: Show[],
+  tracks?: Track[]
+  episodes?: Episode[]
+}
+
 export const useSearch = create<{
-  data: any[];
-  fetchData: (sdk: SpotifyApi | null) => void;
+  data: SearchResults;
   search: string;
-  setSearch: (search: string) => void;
+  setSearch: (sdk: SpotifyApi | null,search: string) => void;
   category: string;
   setCategory: (category: string) => void;
 }>((set,get) => ({
-  data: [], // Initial state
-  fetchData: async (sdk: SpotifyApi | null) => {
-    try {
-      // Simulate an API call (replace this with your actual data fetching code)
-      let searchType
+  data: {}, // Initial state
+  search: '',
+  setSearch: async (sdk:SpotifyApi| null,search: string) => {
+    set({ search: search });
+    let searchType
       if (get().category === 'all') {
         searchType = ['album', 'artist', 'playlist', 'show', 'track'];
       } else {
         searchType = [get().category];
       }
-      const response = await sdk?.search(get().search, searchType, {
-        limit: 50,
-      });
-      if (!response) {
-        throw new Error('Failed to fetch data');
-      }
-
-      // Update the state with the fetched data
-      set({ data: response.items });
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  },
-  search: '',
-  setSearch: (search: string) => {
-    set({ search: search });
+      const response = await sdk?.search(search, searchType);
+      
+    set({ data: response})
   },
   category: 'all',
   setCategory: (category: string) => {

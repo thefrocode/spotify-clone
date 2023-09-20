@@ -7,16 +7,13 @@ import { search } from './search.css';
 /* eslint-disable-next-line */
 export interface SearchProps {}
 
-export function useSearchRender(){
+export function useSearchRender() {
   const [search, setSearch] = useState('');
 
   const changeSearch = useCallback((search: string) => {
-    console.log(search);
-  
     setSearch(search);
-    
   }, []);
-  console.log(search);
+
   return {
     changeSearch,
     search,
@@ -26,9 +23,9 @@ export function useSearchRender(){
 export function Search() {
   const { search } = useSearch();
   console.log(search);
-  const searchPage = search? <SearchResults/> : <BrowseList/>;
+  const searchPage = search ? <SearchResults /> : <BrowseList />;
 
-  return  (<div>{searchPage}</div>) ;
+  return <div>{searchPage}</div>;
 }
 
 export default Search;
