@@ -11,12 +11,8 @@ import {
   navbarLibraryList,
   navbarLibraryListItemArtistImage,
 } from '@spotify-clone/ui';
-import { Container, Button, Plus, Search, Library} from '@spotify-clone/ui';
-import { useSpotify } from '@spotify-clone/shared';
-import { useAlbum } from '@spotify-clone/albums';
-import { useEffect } from 'react';
+import { Container, Button, Plus, Search, Library } from '@spotify-clone/ui';
 import { useUserLibrary } from '../data-access/user-library.store';
-
 
 interface LibraryItemProps {
   title?: string;
@@ -25,25 +21,25 @@ interface LibraryItemProps {
   owner?: string;
 }
 
-
 function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
-  const imageStyle = category==='artist'? navbarLibraryListItemArtistImage: navbarLibraryListItemImage
+  const imageStyle =
+    category === 'artist'
+      ? navbarLibraryListItemArtistImage
+      : navbarLibraryListItemImage;
   return (
     <div className={`${navbarLibraryListItem}`}>
       <img src={icon} alt="Alt" className={`${imageStyle}`} />
       <div className={`${navbarLibraryListItemTitle}`}>{title}</div>
       <div className={`${navbarLibraryListItemDescription}`}>
-        {category && category.charAt(0).toUpperCase() + category.slice(1)} {owner ? <>&#8226; {owner}</> : null}
+        {category && category.charAt(0).toUpperCase() + category.slice(1)}{' '}
+        {owner ? <>&#8226; {owner}</> : null}
       </div>
     </div>
   );
 }
 export function UserLibrary() {
-  
-    const { library } = useUserLibrary();
+  const { library } = useUserLibrary();
   console.log(library);
-
-  
 
   const items = [
     {
@@ -59,9 +55,8 @@ export function UserLibrary() {
       title: 'Artists',
     },
   ];
-  
+
   return (
-    
     <Container flexDirection="column" margin="0px">
       <div className={`${navbarLibrary}`}>
         <button className={`${navbarLibraryButton}`}>
@@ -89,7 +84,12 @@ export function UserLibrary() {
               title={item.album?.name || item.show?.name || item.name}
               category={item.album?.type || item.show?.type || item.type}
               owner={item.album?.label || item.show?.publisher}
-              icon={item.album?.images[2].url || item.show?.images[2].url || item.images[2]?.url || item.images[0].url}
+              icon={
+                item.album?.images[2].url ||
+                item.show?.images[2].url ||
+                item.images[2]?.url ||
+                item.images[0].url
+              }
             />
           );
         })}

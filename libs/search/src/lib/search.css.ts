@@ -2,10 +2,11 @@ import { style } from '@vanilla-extract/css';
 
 export const search = style({
   overflowY: 'scroll',
+  margin: '8px'
 })
 export const searchList = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(5, 1fr)',
+  gridTemplateColumns: 'repeat(4, 1fr)',
   '@media': {
     '(max-width: 768px)': {
       gridTemplateColumns: 'repeat(3, 1fr)', // 2 columns for screens 768px wide or less
@@ -33,8 +34,8 @@ export const searchListCardImage = style({
   right: '0',
   width: '96px',
   height: '96px',
-  transform: 'rotate(45deg)',
-  margin: '-24px',
+  transform: 'rotate(25deg)',
+  margin: '-12px',
 })
 export const searchListCardText = style({
   fontSize: '1.5rem',

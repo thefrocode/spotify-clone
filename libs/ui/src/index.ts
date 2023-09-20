@@ -6,6 +6,7 @@ export * from './lib/icons/library';
 export * from './lib/ui';
 export * from './lib/styles/theme.css'
 export * from './lib/components/navbar/navbar.css';
+export * from './lib/components/topbar/topbar.css';
 export * from './lib/components/home/home.css';
 export * from './lib/components/card/card'
 export * from './lib/components/card/card.css';

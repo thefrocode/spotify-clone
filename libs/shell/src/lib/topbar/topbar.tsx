@@ -1,6 +1,6 @@
 import { useSpotify } from '@spotify-clone/shared';
 import { useRef, useState } from 'react';
-import { BackButton, ForwardButton, Search, Profile} from '@spotify-clone/ui';
+import { BackButton, ForwardButton, Profile } from '@spotify-clone/ui';
 
 import {
   topbar,
@@ -9,9 +9,8 @@ import {
   topbarProfile,
   topbarProfileDropdown,
   topbarProfileDropdownContent,
-  topbarSearch,
-  topbarSearchInput,
-} from './topbar.css';
+} from '@spotify-clone/ui';
+import { SearchInput } from '@spotify-clone/search';
 
 export function Topbar() {
   const profileDropDown = useRef<HTMLDivElement | null>(null);
@@ -37,10 +36,7 @@ export function Topbar() {
           <ForwardButton />
         </span>
 
-        <div className={`${topbarSearch}`}>
-          <Search color="white" />
-          <input className={`${topbarSearchInput}`} />
-        </div>
+        <SearchInput />
       </div>
 
       <div className={`${topbarContainers} ${topbarProfile}`}>
