@@ -26,7 +26,7 @@ export const useSearch = create<{
     let searchType,limit;
       if (get().category === 'all') {
         searchType = ['album', 'artist', 'playlist', 'show', 'track'];
-        limit = 5
+        limit = 4
       } else {
         searchType = [get().category];
         limit = 10

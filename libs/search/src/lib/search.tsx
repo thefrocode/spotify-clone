@@ -25,7 +25,7 @@ export function Search() {
   console.log(search);
   const searchPage = search ? <SearchResults /> : <BrowseList />;
 
-  return <div>{searchPage}</div>;
+  return <>{searchPage}</>;
 }
 
 export default Search;

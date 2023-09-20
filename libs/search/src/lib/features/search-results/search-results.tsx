@@ -14,7 +14,7 @@ export function SearchResults() {
   const { data, top_result } = useSearch();
   console.log(data?.tracks?.items);
   return (
-    <div>
+    <div className='search--result'>
       <ul className={`${navbarLibraryCategories}`}>
         {categories.map((item) => {
           return <Button primary={true} label={item.name} key={item.id} />;
@@ -25,7 +25,7 @@ export function SearchResults() {
           <h1 className={`${searchListCardHeading}`}>Top Result</h1>
           <Container flexDirection="column" backgroundColor="#242424" gap="8px">
             <img
-              src={top_result?.album.images[1].url}
+              src={top_result?.album.images[0].url}
               alt="Alt"
               className={`${topResultImage}`}
             />
@@ -39,7 +39,7 @@ export function SearchResults() {
         <div className="result--list-item">
           <h1 className={`${searchListCardHeading}`}>Songs</h1>
           <div className="result--song-list">
-            {data?.tracks?.items.map((item, index) => {
+            {data && data.tracks && data?.tracks?.items.map((item, index) => {
               return (
                 <div key={index} className="result--song-list-item">
                   <img
@@ -60,8 +60,32 @@ export function SearchResults() {
           </div>
         </div>
       </div>
-      <div></div>
-      <div></div>
+      <h1 className='search--list--heading'>Artists</h1>
+      <div className="result--list">
+        {data && data.artists &&
+          data.artists.items?.map((item) => {
+            return <div className="result--artist-card">
+              <img src={item.images[1].url}/>
+              <div className='result--arist-desc'>
+                <p>{item.name}</p>
+                <span>Artist</span>
+                </div>
+            </div>;
+          })}
+      </div>
+      <h1 className='search--list--heading'>Albums</h1>
+      <div className="result--list">
+        {data && data.albums &&
+          data.albums.items?.map((item) => {
+            return <div className="result--album-card">
+              <img src={item.images[1].url}/>
+              <div className='result--album-desc'>
+                <p>{item.name}</p>
+                <span>{item.release_date} &#8226; {item.artists[0].name}</span>
+                </div>
+            </div>;
+          })}
+      </div>
     </div>
   );
 }
@@ -76,5 +100,5 @@ function millisecondsToMinutesAndSeconds(milliseconds: number) {
   // Format seconds to include a trailing zero if needed
   const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
-  return `${minutes}:${formattedSeconds}` ;
+  return `${minutes}:${formattedSeconds}`;
 }
