@@ -44,3 +44,35 @@ export const searchListCardText = style({
   color: '#fff',
   padding: '16px'
 })
+
+export const topResultImage = style({
+  width: '92px',
+  height: '92px',
+})
+export const topResultHeading = style({
+  fontSize: '2rem',
+  fontWeight: '700',
+  fontFamily: 'sans-serif',
+  color: '#fff',
+})
+
+export const topResultFooter = style({
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '12px',
+})
+
+export const topResultFooterText = style({
+  fontSize: '16px',
+  fontWeight: '400',
+  color: '#a7a7a7',
+  fontFamily: 'sans-serif',
+  alignSelf: 'center',
+})
+
+export const resultList = style({
+  display: 'flex',
+  flexDirection: 'row',
+  width: '100%',
+  justifyContent: 'space-between',
+})

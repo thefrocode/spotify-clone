@@ -1,0 +1,43 @@
+.result--list-item{
+    flex: 1
+}
+
+.result--song-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+}
+.result--song-list-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.result--song-list-image{
+    flex: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.result--song-list-desc{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+.result--song-list-desc > p{
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    font-family: 'sans-serif';
+}
+.result--song-list-desc > span{
+    color: #b3b3b3;
+}
+
+.result--song-list-time{
+    color: #b3b3b3;
+}

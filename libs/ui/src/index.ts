@@ -10,3 +10,4 @@ export * from './lib/components/topbar/topbar.css';
 export * from './lib/components/home/home.css';
 export * from './lib/components/card/card'
 export * from './lib/components/card/card.css';
+export * from './lib/components/global/global.css';
