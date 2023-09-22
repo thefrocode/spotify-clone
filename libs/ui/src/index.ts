@@ -11,3 +11,4 @@ export * from './lib/components/home/home.css';
 export * from './lib/components/card/card'
 export * from './lib/components/card/card.css';
 export * from './lib/components/global/global.css';
+export * from './lib/styles'
