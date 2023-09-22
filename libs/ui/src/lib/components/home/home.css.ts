@@ -8,7 +8,6 @@ export const home = style({
 export const homeGreeting = style({
   fontSize: '2rem',
   fontWeight: '700',
-  fontFamily: vars.fonts.body,
   whiteSpace: 'nowrap',
 });
 
@@ -44,7 +43,6 @@ export const popularCardTitleSection = style({
   alignItems: 'center',
   fontSize: '1rem',
   fontWeight: '700',
-  fontFamily: vars.fonts.body,
   padding: '12px',
 });
 export const popularCardText = style({});
@@ -52,6 +50,5 @@ export const popularCardText = style({});
 export const homeHeading = style({
     fontSize: '1.5rem',
     fontWeight: '700',
-    fontFamily: vars.fonts.body,
     whiteSpace: 'nowrap',
 })

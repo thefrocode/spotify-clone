@@ -8,7 +8,6 @@ export const navbar = style({
     flexDirection: 'column',
     margin: '0 auto',
     width: '100%',
-    fontFamily: vars.fonts.body,
     fontWeight: 700,
     fontSize: '1rem',
     maxWidth: '100%',

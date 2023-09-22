@@ -6,7 +6,6 @@ export const button = style({
   padding: '4px 12px',
   color: '#ffffff',
   fontSize: vars.fonts.size.normal,
-  fontFamily: vars.fonts.body,
 })
 
 export const buttonPrimary = style([button,{

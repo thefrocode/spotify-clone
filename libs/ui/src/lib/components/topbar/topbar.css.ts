@@ -80,7 +80,6 @@ export const topbarProfileDropdownContent = style({
 globalStyle(`${topbarProfileDropdownContent} > li`, {
   
   paddingInlineStart: '0px',
-  fontFamily: vars.fonts.body,
   color: vars.colors.text.tertiary,
   fontSize: '14px',
 });

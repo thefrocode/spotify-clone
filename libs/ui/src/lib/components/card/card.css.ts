@@ -17,13 +17,11 @@ export const cardImage = style({});
 export const cardTitle = style({
   fontSize: '16px',
   fontWeight: '700',
-  fontFamily: vars.fonts.body,
   whiteSpace: 'nowrap',
 });
 export const cardDescription = style({
   fontSize: '14px',
   fontWeight: '400',
-  fontFamily: vars.fonts.body,
   color: vars.colors.text.secondary,
   whiteSpace: 'nowrap',
 });
