@@ -41,7 +41,6 @@
 }
 .result--song-list-desc > p{
     font-weight: 600;
-    font-size: 16px;
     margin: 0;
 }
 .result--song-list-desc > span{
@@ -85,13 +84,10 @@
 }
 .result--artist-desc > p{
     font-weight: 600;
-    font-size: 16px;
-    margin: 0;
 }
 .result--artist-desc > span{
     color: #b3b3b3;
     font-weight: 600;
-    font-size: 16px;
     margin: 0;
 }
 
@@ -103,7 +99,6 @@
 
 .result--album-desc > p{
     font-weight: 600;
-    font-size: 16px;
     margin: 0;
     max-width: 150px;
     overflow: hidden;
@@ -114,7 +109,6 @@
 .result--album-desc > span{
     color: #b3b3b3;
     font-weight: 600;
-    font-size: 16px;
     margin: 0;
     max-width: 150px;
     overflow: hidden;

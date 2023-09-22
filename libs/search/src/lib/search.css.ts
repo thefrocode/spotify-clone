@@ -36,7 +36,7 @@ export const searchListCardImage = style({
 })
 export const searchListCardText = style({
   fontSize: vars.fonts.size.large,
-  fontWeight: '700',
+  fontWeight: vars.fonts.weight.bold,
   padding: '16px'
 })
 
@@ -46,7 +46,7 @@ export const topResultImage = style({
 })
 export const topResultHeading = style({
   fontSize: vars.fonts.size.extraLarge,
-  fontWeight: '700',
+  fontWeight: vars.fonts.weight.bold,
 })
 
 export const topResultFooter = style({
@@ -56,7 +56,6 @@ export const topResultFooter = style({
 })
 
 export const topResultFooterText = style({
-  fontWeight: '400',
   color: '#a7a7a7',
   alignSelf: 'center',
 })

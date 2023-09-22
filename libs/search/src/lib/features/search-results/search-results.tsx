@@ -1,4 +1,10 @@
-import { Button, Container, navbarLibraryCategories } from '@spotify-clone/ui';
+import {
+  Button,
+  cardItem,
+  cardItemColumn,
+  Container,
+  navbarLibraryCategories,
+} from '@spotify-clone/ui';
 import { categories } from '@spotify-clone/shared';
 import { useSearch } from '../../data-access/search.store';
 import '../../results.css';
@@ -13,7 +19,7 @@ export function SearchResults() {
   const { data, top_result } = useSearch();
   console.log(data?.tracks?.items);
   return (
-    <div className='search--result'>
+    <div className="search--result">
       <ul className={`${navbarLibraryCategories}`}>
         {categories.map((item) => {
           return <Button primary={true} label={item.name} key={item.id} />;
@@ -38,51 +44,59 @@ export function SearchResults() {
         <div className="result--list-item">
           <h1>Songs</h1>
           <div className="result--song-list">
-            {data && data.tracks && data?.tracks?.items.map((item, index) => {
-              return (
-                <div key={index} className="result--song-list-item">
-                  <img
-                    src={item.album.images[1].url}
-                    alt="Alt"
-                    className="result--song-list-image"
-                  />
-                  <div className="result--song-list-desc">
-                    <p>{item.name}</p>
-                    <span>{item.artists[0].name}</span>
+            {data &&
+              data.tracks &&
+              data?.tracks?.items.map((item, index) => {
+                return (
+                  <div key={index} className="result--song-list-item">
+                    <img
+                      src={item.album.images[1].url}
+                      alt="Alt"
+                      className="result--song-list-image"
+                    />
+                    <div className="result--song-list-desc">
+                      <p>{item.name}</p>
+                      <span>{item.artists[0].name}</span>
+                    </div>
+                    <span className="result--song-list-time">
+                      {millisecondsToMinutesAndSeconds(item.duration_ms)}
+                    </span>
                   </div>
-                  <span className="result--song-list-time">
-                    {millisecondsToMinutesAndSeconds(item.duration_ms)}
-                  </span>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
         </div>
       </div>
-      <h1 className='search--list--heading'>Artists</h1>
+      <h1 className="search--list--heading">Artists</h1>
       <div className="result--list">
-        {data && data.artists &&
-          data.artists.items?.map((item,index) => {
-            return <div className="result--artist-card" key={index}>
-              <img src={item.images[1].url}/>
-              <div className='result--arist-desc'>
+        {data &&
+          data.artists &&
+          data.artists.items?.map((item, index) => {
+            return (
+              <div className={cardItemColumn} key={index}>
+                <img src={item.images[1].url} />
                 <p>{item.name}</p>
                 <span>Artist</span>
-                </div>
-            </div>;
+              </div>
+            );
           })}
       </div>
-      <h1 className='search--list--heading'>Albums</h1>
+      <h1 className="search--list--heading">Albums</h1>
       <div className="result--list">
-        {data && data.albums &&
+        {data &&
+          data.albums &&
           data.albums.items?.map((item) => {
-            return <div className="result--album-card">
-              <img src={item.images[1].url}/>
-              <div className='result--album-desc'>
-                <p>{item.name}</p>
-                <span>{item.release_date} &#8226; {item.artists[0].name}</span>
+            return (
+              <div className={cardItemColumn}>
+                <img src={item.images[1].url} />
+                <div className="result--album-desc">
+                  <p>{item.name}</p>
+                  <span>
+                    {item.release_date} &#8226; {item.artists[0].name}
+                  </span>
                 </div>
-            </div>;
+              </div>
+            );
           })}
       </div>
     </div>

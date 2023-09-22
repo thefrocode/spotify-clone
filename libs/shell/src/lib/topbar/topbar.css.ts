@@ -67,7 +67,6 @@ export const topbarProfileDropdown = style({
   top: 40,
   minWidth: '160px',
   padding: '4px',
-  fontWeight: 400,
 });
 
 export const topbarProfileDropdownContent = style({

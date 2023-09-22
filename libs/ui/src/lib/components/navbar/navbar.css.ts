@@ -22,7 +22,7 @@ export const navbarLibraryButton = style({
   color: vars.colors.text.secondary,
   background: 'transparent',
   border: 'none',
-  fontWeight: 700,
+  fontWeight: vars.fonts.weight.bold,
 });
 
 export const navbarLibraryCategories = style({
@@ -39,7 +39,7 @@ export const navbarLibrarySearchSelect = style({
   background: 'transparent',
   border: 'none',
   color: vars.colors.text.secondary,
-  fontWeight: 700,
+  fontWeight: vars.fonts.weight.bold,
 });
 
 export const navbarLibraryList = style({
@@ -74,12 +74,10 @@ export const navbarLibraryListItemArtistImage = style({
   });
 
 export const navbarLibraryListItemTitle = style({
-  fontWeight: 400,
   fontSize: vars.fonts.size.small,
   textOverflow: 'ellipsis',
 });
 export const navbarLibraryListItemDescription = style({
-  fontWeight: 400,
   fontSize: vars.fonts.size.small,
   color: vars.colors.text.subdued,
   justifyContent: 'left',
