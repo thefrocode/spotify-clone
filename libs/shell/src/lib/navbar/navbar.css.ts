@@ -9,7 +9,6 @@ export const navbar = style({
     margin: '0 auto',
     width: '100%',
     fontWeight: 700,
-    fontSize: '1rem',
     maxWidth: '100%',
     minHeight: '0',
     rowGap: '8px',

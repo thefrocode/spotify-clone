@@ -41,7 +41,6 @@ export const topbarSearchInput = style({
   backgroundColor: 'transparent',
   border: 'none',
   flex: '1',
-  fontSize: '1rem',
   //on hover
   ':hover': {
     border: 'none',
@@ -81,5 +80,5 @@ globalStyle(`${topbarProfileDropdownContent} > li`, {
   
   paddingInlineStart: '0px',
   color: vars.colors.text.tertiary,
-  fontSize: '14px',
+  fontSize: vars.fonts.size.small,
 });

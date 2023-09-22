@@ -1,3 +1,4 @@
+import { vars } from '@spotify-clone/ui';
 import { style } from '@vanilla-extract/css';
 
 export const search = style({
@@ -15,10 +16,6 @@ export const searchList = style({
   gap: '16px',
 });
 
-export const searchListCardHeading= style({
-  color: '#fff',
-  fontFamily: 'sans-serif',
-})
 
 export const searchListCard = style({
   maxWidth: '208px',
@@ -38,10 +35,8 @@ export const searchListCardImage = style({
   margin: '-12px',
 })
 export const searchListCardText = style({
-  fontSize: '1.5rem',
+  fontSize: vars.fonts.size.large,
   fontWeight: '700',
-  fontFamily: 'sans-serif',
-  color: '#fff',
   padding: '16px'
 })
 
@@ -50,10 +45,8 @@ export const topResultImage = style({
   height: '92px',
 })
 export const topResultHeading = style({
-  fontSize: '2rem',
+  fontSize: vars.fonts.size.extraLarge,
   fontWeight: '700',
-  fontFamily: 'sans-serif',
-  color: '#fff',
 })
 
 export const topResultFooter = style({
@@ -63,10 +56,8 @@ export const topResultFooter = style({
 })
 
 export const topResultFooterText = style({
-  fontSize: '16px',
   fontWeight: '400',
   color: '#a7a7a7',
-  fontFamily: 'sans-serif',
   alignSelf: 'center',
 })
 

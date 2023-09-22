@@ -22,7 +22,6 @@ export const navbarLibraryButton = style({
   color: vars.colors.text.secondary,
   background: 'transparent',
   border: 'none',
-  fontSize: '1rem',
   fontWeight: 700,
 });
 
@@ -40,7 +39,6 @@ export const navbarLibrarySearchSelect = style({
   background: 'transparent',
   border: 'none',
   color: vars.colors.text.secondary,
-  fontSize: '1rem',
   fontWeight: 700,
 });
 
@@ -77,12 +75,12 @@ export const navbarLibraryListItemArtistImage = style({
 
 export const navbarLibraryListItemTitle = style({
   fontWeight: 400,
-  fontSize: '14px',
+  fontSize: vars.fonts.size.small,
   textOverflow: 'ellipsis',
 });
 export const navbarLibraryListItemDescription = style({
   fontWeight: 400,
-  fontSize: '14px',
+  fontSize: vars.fonts.size.small,
   color: vars.colors.text.subdued,
   justifyContent: 'left',
   alignItems: 'center',

@@ -15,12 +15,11 @@ export const cardList = style({
 
 export const cardImage = style({});
 export const cardTitle = style({
-  fontSize: '16px',
   fontWeight: '700',
   whiteSpace: 'nowrap',
 });
 export const cardDescription = style({
-  fontSize: '14px',
+  fontSize: vars.fonts.size.small,
   fontWeight: '400',
   color: vars.colors.text.secondary,
   whiteSpace: 'nowrap',

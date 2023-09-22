@@ -2,11 +2,10 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../../styles/theme.css';
 
 export const home = style({
-    overflowY: 'scroll',
-    
-})
+  overflowY: 'scroll',
+});
 export const homeGreeting = style({
-  fontSize: '2rem',
+  fontSize: vars.fonts.size.extraLarge,
   fontWeight: '700',
   whiteSpace: 'nowrap',
 });
@@ -41,14 +40,13 @@ export const popularCardTitleSection = style({
   backgroundColor: vars.colors.primary,
   alignSelf: 'stretch',
   alignItems: 'center',
-  fontSize: '1rem',
   fontWeight: '700',
   padding: '12px',
 });
 export const popularCardText = style({});
 
 export const homeHeading = style({
-    fontSize: '1.5rem',
-    fontWeight: '700',
-    whiteSpace: 'nowrap',
-})
+  fontSize: vars.fonts.size.large,
+  fontWeight: '700',
+  whiteSpace: 'nowrap',
+});

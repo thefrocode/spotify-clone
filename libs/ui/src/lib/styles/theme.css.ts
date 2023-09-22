@@ -6,10 +6,12 @@ export const vars = createGlobalTheme(":root", {
     heading: "Georgia, Times, Times New Roman, serif",
     body: "'Nunito Sans', sans-serif;",
     size:{
-        small: "12px",
-        normal: "14px",
-        medium: "16px",
-        large: "20px",
+        extraSmall: "0.75rem",
+        small: "0.875rem",
+        normal: "1rem",
+        medium: "1.25rem",
+        large: "1.5rem",
+        extraLarge: "2rem",
     }
   },
   colors: {

@@ -4,7 +4,6 @@ import { useSearch } from '../../data-access/search.store';
 import '../../results.css';
 import {
   resultList,
-  searchListCardHeading,
   topResultFooter,
   topResultFooterText,
   topResultHeading,
@@ -22,7 +21,7 @@ export function SearchResults() {
       </ul>
       <div className={`${resultList}`}>
         <div className="result--list-item">
-          <h1 className={`${searchListCardHeading}`}>Top Result</h1>
+          <h1>Top Result</h1>
           <Container flexDirection="column" backgroundColor="#242424" gap="8px">
             <img
               src={top_result?.album.images[0].url}
@@ -37,7 +36,7 @@ export function SearchResults() {
           </Container>
         </div>
         <div className="result--list-item">
-          <h1 className={`${searchListCardHeading}`}>Songs</h1>
+          <h1>Songs</h1>
           <div className="result--song-list">
             {data && data.tracks && data?.tracks?.items.map((item, index) => {
               return (
@@ -63,8 +62,8 @@ export function SearchResults() {
       <h1 className='search--list--heading'>Artists</h1>
       <div className="result--list">
         {data && data.artists &&
-          data.artists.items?.map((item) => {
-            return <div className="result--artist-card">
+          data.artists.items?.map((item,index) => {
+            return <div className="result--artist-card" key={index}>
               <img src={item.images[1].url}/>
               <div className='result--arist-desc'>
                 <p>{item.name}</p>

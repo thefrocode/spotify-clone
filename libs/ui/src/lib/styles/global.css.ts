@@ -4,6 +4,7 @@ import { vars } from "./theme.css";
 globalStyle("body, body *", {
   fontFamily: vars.fonts.body,
   color: vars.colors.text.primary,  
+  fontSize: vars.fonts.size.normal,
 });
 
 globalStyle("body", {
