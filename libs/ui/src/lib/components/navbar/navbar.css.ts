@@ -80,7 +80,6 @@ export const navbarLibraryListItemArtistImage = style({
 export const navbarLibraryListItemTitle = style({
   fontWeight: 400,
   fontSize: '14px',
-  color: vars.colors.text.primary,
   fontFamily: vars.fonts.body,
   textOverflow: 'ellipsis',
 });

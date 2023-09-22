@@ -5,7 +5,6 @@ export const topbar = style({
   display: 'flex',
   justifyContent: 'space-between',
   backgroundColor: 'transparent',
-  color: vars.colors.text.primary,
   alignItems: 'center',
   padding: '0 24px',
   borderRadius: '50%',
@@ -42,7 +41,6 @@ export const topbarSearchInput = style({
   backgroundColor: 'transparent',
   border: 'none',
   flex: '1',
-  color: vars.colors.text.primary,
   fontSize: '1rem',
   //on hover
   ':hover': {

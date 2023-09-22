@@ -9,7 +9,6 @@ export const homeGreeting = style({
   fontSize: '2rem',
   fontWeight: '700',
   fontFamily: vars.fonts.body,
-  color: vars.colors.text.primary,
   whiteSpace: 'nowrap',
 });
 
@@ -43,7 +42,6 @@ export const popularCardTitleSection = style({
   backgroundColor: vars.colors.primary,
   alignSelf: 'stretch',
   alignItems: 'center',
-  color: vars.colors.text.primary,
   fontSize: '1rem',
   fontWeight: '700',
   fontFamily: vars.fonts.body,
@@ -55,6 +53,5 @@ export const homeHeading = style({
     fontSize: '1.5rem',
     fontWeight: '700',
     fontFamily: vars.fonts.body,
-    color: vars.colors.text.primary,
     whiteSpace: 'nowrap',
 })

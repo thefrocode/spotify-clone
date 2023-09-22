@@ -18,7 +18,6 @@ export const cardTitle = style({
   fontSize: '16px',
   fontWeight: '700',
   fontFamily: vars.fonts.body,
-  color: vars.colors.text.primary,
   whiteSpace: 'nowrap',
 });
 export const cardDescription = style({
