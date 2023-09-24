@@ -1,21 +1,25 @@
-import { Container } from "../container/container";
-import { card, cardDescription, cardImage, cardTitle } from "./card.css";
+import { Container } from '../container/container';
+import {
+  cardDescription,
+  cardImage,
+  cardItemColumn,
+  cardItemRow,
+  cardTitle,
+} from './card.css';
 
-interface CardProps{
-    imgSrc: string;
-    title: string;
-    description: string;
+interface CardProps {
+  imgSrc: string;
+  title: string;
+  description: string;
+  flexDirection: 'row' | 'column';
 }
-export function Card({
-    imgSrc, title, description
-}: CardProps){
-    return (
-        <Container>
-            <div className={`${card}`}>
-                <img className={`${cardImage}`} src={imgSrc} alt="Alt" />
-                <span className={`${cardTitle}`}>{title}</span>
-                <span className={`${cardDescription}`}>{description}</span>
-            </div>
-        </Container>
-    )
+export function Card({ imgSrc, title, description, flexDirection }: CardProps) {
+  const card = flexDirection === 'column' ? cardItemColumn : cardItemRow;
+  return (
+    <div className={`${card}`}>
+      <img src={imgSrc} alt="Alt" />
+      <p>{title}</p>
+      <span>{description}</span>
+    </div>
+  );
 }

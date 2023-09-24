@@ -1,5 +1,6 @@
 import {
   Button,
+  Card,
   cardItem,
   cardItemColumn,
   Container,
@@ -73,11 +74,17 @@ export function SearchResults() {
           data.artists &&
           data.artists.items?.map((item, index) => {
             return (
-              <div className={cardItemColumn} key={index}>
-                <img src={item.images[1].url} />
-                <p>{item.name}</p>
-                <span>Artist</span>
-              </div>
+              // <div className={cardItemColumn} key={index}>
+              //   <img src={item.images[1].url} />
+              //   <p>{item.name}</p>
+              //   <span>Artist</span>
+              // </div>
+              <Card
+                imgSrc={item.images[1].url}
+                title={item.name}
+                description="Artist"
+                flexDirection="column"
+              />
             );
           })}
       </div>
@@ -87,15 +94,21 @@ export function SearchResults() {
           data.albums &&
           data.albums.items?.map((item) => {
             return (
-              <div className={cardItemColumn}>
-                <img src={item.images[1].url} />
-                <div className="result--album-desc">
-                  <p>{item.name}</p>
-                  <span>
-                    {item.release_date} &#8226; {item.artists[0].name}
-                  </span>
-                </div>
-              </div>
+              // <div className={cardItemColumn}>
+              //   <img src={item.images[1].url} />
+              //   <div className="result--album-desc">
+              //     <p>{item.name}</p>
+              //     <span>
+              //       {item.release_date} &#8226; {item.artists[0].name}
+              //     </span>
+              //   </div>
+              // </div>
+              <Card
+                imgSrc={item.images[1].url}
+                title={item.name}
+                description={`${item.release_date} &#8226; ${item.artists[0].name}`}
+                flexDirection="column"
+              />
             );
           })}
       </div>

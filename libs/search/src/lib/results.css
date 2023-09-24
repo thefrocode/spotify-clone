@@ -54,7 +54,7 @@
 .result--list{
     display: flex;
     flex-direction: row;
-    gap: 36px;
+    gap: 8px;
     justify-content: space-between;
     padding: 0 8px;
 }

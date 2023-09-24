@@ -29,8 +29,6 @@ export const cardItem = style({
   gap: '0.5rem',
   backgroundColor: vars.colors.subdued,
   overflow: 'hidden',
-  whiteSpace: 'nowrap',
-  textOverflow: 'ellipsis',
 });
 
 globalStyle(`${cardItem} > div> span`, {
@@ -46,16 +44,23 @@ export const cardItemColumn = style([
     display: 'flex',
     flexDirection: 'column',
     padding: '1rem',
-    alignItems: 'left',
+    flex: 1,
+    alignItems: 'center',
   },
 ]);
+
 globalStyle(`${cardItemColumn} > img`, {
-  width: '148px',
-  height: '148px',
   borderRadius: '50%',
+  width: '100%',
+  height: '100%',
 });
 globalStyle(`${cardItemColumn} > p`, {
   fontWeight: vars.fonts.weight.bold,
+  alignSelf: 'flex-start',
+  
+});
+globalStyle(`${cardItemColumn} > span`, {
+  alignSelf: 'flex-start',
 });
 
 export const cardItemRow = style([
