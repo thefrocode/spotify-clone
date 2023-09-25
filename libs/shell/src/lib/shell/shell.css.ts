@@ -6,5 +6,6 @@ export const shell = style({
     gridTemplateRows: "1fr 72px",
     height: "100vh",
     overflow: "hidden",
-    gap: '8px'
+    gap: '8px',
+    padding: '8px'
 })

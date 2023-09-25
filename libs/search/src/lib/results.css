@@ -5,11 +5,7 @@
     flex-direction: column;
     gap: 24px;
 }
-.search--list--heading{
-    font-weight: 600;
-    margin: 0;
-    padding: 0 8px;
-}
+
 .result--list-item{
     flex: 1
 }

@@ -6,14 +6,15 @@ export const card = style({
   flexDirection: 'column',
   maxWidth: '100%',
   maxHeight: '100%',
+  
 });
+
 
 export const cardList = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
 });
 
-export const cardImage = style({});
 export const cardTitle = style({
   fontWeight: vars.fonts.weight.bold,
   whiteSpace: 'nowrap',
@@ -48,12 +49,18 @@ export const cardItemColumn = style([
     alignItems: 'center',
   },
 ]);
-
-globalStyle(`${cardItemColumn} > img`, {
+export const cardImageArtistColumn = style({
   borderRadius: '50%',
   width: '100%',
   height: '100%',
-});
+})
+
+export const cardImageColumn = style({
+  borderRadius: '5px',
+  width: '100%',
+  height: '100%',
+})
+
 globalStyle(`${cardItemColumn} > p`, {
   fontWeight: vars.fonts.weight.bold,
   alignSelf: 'flex-start',
@@ -74,9 +81,14 @@ export const cardItemRow = style([
     whiteSpace: 'nowrap',
   },
 ]);
-globalStyle(`${cardItemRow} > img`, {
-  gridRow: 'span 2 / span 2',
-  height: '48px',
-  width: '48px',
-  borderRadius: '4px',
-});
+export const cardImageRow= style({
+  borderRadius: '50%',
+  width: '100%',
+  height: '100%',
+})
+// globalStyle(`${cardItemRow} > img`, {
+//   gridRow: 'span 2 / span 2',
+//   height: '48px',
+//   width: '48px',
+//   borderRadius: '4px',
+// });
