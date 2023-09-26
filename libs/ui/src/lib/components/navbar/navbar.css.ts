@@ -52,35 +52,3 @@ export const navbarLibraryList = style({
   width: '100%',
 });
 
-export const navbarLibraryListItem = style({
-  display: 'grid',
-  gridTemplateColumns: '48px 1fr',
-  gridTemplateRows: '24px 24px',
-  padding: '8px',
-  columnGap: '8px',
-  whiteSpace: 'nowrap',
-});
-export const navbarLibraryListItemImage = style({
-  gridRow: 'span 2 / span 2',
-  height: '48px',
-  width: '48px',
-  borderRadius: '4px',
-});
-export const navbarLibraryListItemArtistImage = style({
-    gridRow: 'span 2 / span 2',
-    height: '48px',
-    width: '48px',
-    borderRadius: '50%',
-  });
-
-export const navbarLibraryListItemTitle = style({
-  fontSize: vars.fonts.size.small,
-  textOverflow: 'ellipsis',
-});
-export const navbarLibraryListItemDescription = style({
-  fontSize: vars.fonts.size.small,
-  color: vars.colors.text.subdued,
-  justifyContent: 'left',
-  alignItems: 'center',
-  display: 'flex',
-});

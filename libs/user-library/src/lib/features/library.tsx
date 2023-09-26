@@ -4,42 +4,14 @@ import {
   navbarLibraryCategories,
   navbarLibrarySearch,
   navbarLibrarySearchSelect,
-  navbarLibraryListItem,
-  navbarLibraryListItemImage,
-  navbarLibraryListItemTitle,
-  navbarLibraryListItemDescription,
   navbarLibraryList,
-  navbarLibraryListItemArtistImage,
 } from '@spotify-clone/ui';
 import { Container, Button, Plus, Search, Library } from '@spotify-clone/ui';
 import { useUserLibrary } from '../data-access/user-library.store';
+import { LibraryItemCard } from '../ui/LibraryItemCard';
 
-interface LibraryItemProps {
-  title?: string;
-  category?: string;
-  icon?: any;
-  owner?: string;
-}
-
-function LibraryItem({ title, icon, category, owner }: LibraryItemProps) {
-  const imageStyle =
-    category === 'artist'
-      ? navbarLibraryListItemArtistImage
-      : navbarLibraryListItemImage;
-  return (
-    <div className={`${navbarLibraryListItem}`}>
-      <img src={icon} alt="Alt" className={`${imageStyle}`} />
-      <div className={`${navbarLibraryListItemTitle}`}>{title}</div>
-      <div className={`${navbarLibraryListItemDescription}`}>
-        {category && category.charAt(0).toUpperCase() + category.slice(1)}{' '}
-        {owner ? <>&#8226; {owner}</> : null}
-      </div>
-    </div>
-  );
-}
 export function UserLibrary() {
   const { library } = useUserLibrary();
-  console.log(library);
 
   const items = [
     {
@@ -79,19 +51,7 @@ export function UserLibrary() {
       </div>
       <div className={`${navbarLibraryList}`}>
         {library.map((item) => {
-          return (
-            <LibraryItem
-              title={item.album?.name || item.show?.name || item.name}
-              category={item.album?.type || item.show?.type || item.type}
-              owner={item.album?.label || item.show?.publisher}
-              icon={
-                item.album?.images[2].url ||
-                item.show?.images[2].url ||
-                item.images[2]?.url ||
-                item.images[0].url
-              }
-            />
-          );
+          return <LibraryItemCard {...item} />;
         })}
       </div>
     </Container>

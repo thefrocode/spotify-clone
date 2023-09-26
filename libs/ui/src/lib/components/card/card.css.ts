@@ -90,39 +90,171 @@ export const cardList = style({
 //   borderRadius: '4px',
 // });
 
-export const baseCard = style({
+// export const baseCard = style({
+//   display: 'flex',
+//   gap: '0.5rem',
+//   backgroundColor: vars.colors.subdued,
+//   overflow: 'hidden',
+// });
+export const card = recipe({
+  base:{
+    padding: '0.5rem',
+    columnGap: '0.5rem',
+  },
+  variants: {
+    display: {
+      flex: {
+        display: 'flex',
+      },
+      grid: {
+        display: 'grid',
+      },
+    },
+    backgroundColor: {
+      subdued: vars.colors.subdued,
+    },
+    flexDirection: {
+      row: {
+        flexDirection: 'row',
+      },
+      column: {
+        flexDirection: 'column',
+      },
+    },
+    wrap:{
+      wrap:{
+        whiteSpace: 'normal',
+      },
+      nowrap:{
+        whiteSpace: 'nowrap',
+      }
+    },
+    cols: {
+      1: {
+        gridTemplateColumns: 'repeat(1, 1fr)',
+      },
+      2: {
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      },
+      3: {
+        gridTemplateColumns: 'repeat(3, 1fr)',
+      },
+      4: {
+        gridTemplateColumns: 'repeat(4, 1fr)',
+      },
+      card: {
+        gridTemplateColumns: '48px 1fr',
+      },
+    },
+    rows: {
+      1: {
+        gridTemplateRows: 'repeat(1, 1fr)',
+      },
+      2: {
+        gridTemplateRows: 'repeat(2, 1fr)',
+      },
+      3: {
+        gridTemplateRows: 'repeat(3, 1fr)',
+      },
+      4: {
+        gridTemplateRows: 'repeat(4, 1fr)',
+      },
+      card: {
+        gridTemplateRows: '24px 24px',
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      variants: {
+        display: 'flex',
+        flexDirection: 'row',
+      },
+      style: {
+        gap: '1rem',
+        justifyContent: 'space-between',
+      },
+    },
+    {
+      variants: {
+        display: 'flex',
+        flexDirection: 'column',
+      },
+      style: {
+        padding: '1rem',
+        flex: 1,
+        alignItems: 'center',
+      },
+    },
+    {
+      variants: {
+        display: 'grid',
+        flexDirection: 'row',
+      },
+      style: {
+        padding: '1rem',
+        flex: 1,
+        alignItems: 'center',
+      },
+    },
+  ],
+  defaultVariants: {
+    backgroundColor: 'subdued',
+  },
+});
+
+export const cardItem = recipe({
+  base: {
+    padding: '8px',
+    columnGap: '8px',
+    whiteSpace: 'nowrap',
+  },
+});
+
+export const cardImage = recipe({
+  base: {
+    gridRow: 'span 2 / span 2',
+  },
+  variants: {
+    direction: {
+      row: {
+        width: '100%',
+      },
+      column: {
+        width: '48px',
+        height: '48px',
+      },
+    },
+    type: {
+      artist: {
+        borderRadius: '50%',
+      },
+      album: {
+        borderRadius: '5px',
+      },
+      playlist: {
+        borderRadius: '5px',
+      },
+      track: {
+        borderRadius: '5px',
+      },
+    },
+  },
+});
+
+export const cardTitle = styleVariants({
+  library: {
+    fontSize: vars.fonts.size.small,
+  },
+  list: {
+    fontSize: vars.fonts.size.small,
+  },
+});
+
+export const cardDescription = style({
+  fontSize: vars.fonts.size.small,
+  color: vars.colors.text.subdued,
+  justifyContent: 'left',
+  alignItems: 'center',
   display: 'flex',
-  gap: '0.5rem',
-  backgroundColor: vars.colors.subdued,
-  overflow: 'hidden',
-});
-
-export const card = styleVariants({
-  row: [
-    baseCard,
-    {
-      flexDirection: 'row',
-      gap: '1rem',
-      justifyContent: 'space-between',
-    },
-  ],
-  column: [
-    baseCard,
-    {
-      flexDirection: 'column',
-      padding: '1rem',
-      flex: 1,
-      alignItems: 'center',
-    },
-  ],
-});
-
-export const cardImage = styleVariants({
-  column: {
-    width: '100%',
-  },
-  row: {
-    width: '48px',
-    height: '48px',
-  },
 });
