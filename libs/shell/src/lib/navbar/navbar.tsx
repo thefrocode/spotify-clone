@@ -20,7 +20,7 @@ function NavbarItem({ label, icon }: NavbarItemProps) {
 export function Navbar() {
   return (
     <div className={`${navbar}`}>
-      <Container flexDirection="column" margin="0px">
+      <Container flexDirection="column" margin="0px" flexShrink={0}>
         <NavbarItem label="Home" icon={<FaHome size={24} />} />
 
         <NavbarItem label="Search" icon={<FaSearch size={24} />} />

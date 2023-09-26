@@ -45,7 +45,7 @@ export const librarySearchSelect = style({
 export const libraryList = style({
   overflowY: 'hidden',
   overflowX: 'hidden',
-  height: 'auto',
+  //height: '100%',
   ':hover': {
     overflowY: 'scroll',
   },

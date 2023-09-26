@@ -26,5 +26,5 @@ export const navbar = style({
     textDecoration: 'none',
     ':hover': {
       color: vars.colors.text.primary,
-    },
+    }
   });

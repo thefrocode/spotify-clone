@@ -6,7 +6,7 @@ globalStyle(`*`, {
   margin: 0,
 });
 globalStyle(`html, body`, {
-  height: `100%`,
+  height: '100vh',
 });
 
 globalStyle(`body`, {

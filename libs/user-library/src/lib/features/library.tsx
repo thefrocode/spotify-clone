@@ -22,7 +22,7 @@ export function UserLibrary() {
   ];
 
   return (
-    <Container flexDirection="column" margin="0px">
+    <Container flexDirection="column" margin="0px" gap='12px'>
       <div className={`${styles.library}`}>
         <button className={`${styles.libraryButton}`}>
           <Library />
