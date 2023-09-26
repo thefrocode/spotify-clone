@@ -1,6 +1,7 @@
 import { Container, Button, Plus, Search, Library } from '@spotify-clone/ui';
-import { useUserLibrary } from '../data-access/user-library.store';
-import { LibraryItemCard } from '../ui/LibraryItemCard';
+import { useUserLibrary } from '../../data-access/user-library.store';
+import { LibraryItemCard } from '../../ui/LibraryItemCard';
+import { LibraryInput } from '../library-input/library-input';
 import * as styles from './library.css';
 
 export function UserLibrary() {
@@ -22,7 +23,7 @@ export function UserLibrary() {
   ];
 
   return (
-    <Container flexDirection="column" margin="0px" gap='12px'>
+    <Container flexDirection="column" margin="0px" gap="12px">
       <div className={`${styles.library}`}>
         <button className={`${styles.libraryButton}`}>
           <Library />
@@ -36,7 +37,12 @@ export function UserLibrary() {
         })}
       </ul>
       <div className={`${styles.librarySearch}`}>
-        <Search />
+        <div className={styles.librarySearchInputGroup}>
+          
+          <Search color="white"/>
+          <LibraryInput/>
+        </div>
+
         <select className={`${styles.librarySearchSelect}`}>
           <option value="1">Playlist</option>
           <option value="2">Album</option>

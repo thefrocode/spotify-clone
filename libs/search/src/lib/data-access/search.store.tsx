@@ -32,7 +32,6 @@ export const useSearch = create<{
         limit = 10
       }
       const response = await sdk?.search(search, searchType,'KE',limit);
-      console.log(response)
     set({ data: response})
     set({ top_result: response?.tracks?.items[0]})
   },

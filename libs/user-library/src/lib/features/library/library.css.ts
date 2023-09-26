@@ -33,6 +33,7 @@ export const libraryCategories = style({
 export const librarySearch = style({
   display: 'flex',
   justifyContent: 'space-between',
+  width: '100%',
 });
 
 export const librarySearchSelect = style({
@@ -52,3 +53,19 @@ export const libraryList = style({
   width: '100%',
 });
 
+export const librarySearchInputGroup = style({
+  height: '32px',
+  width: '160px',
+  borderRadius: '8px',
+  backgroundColor: '#242424',
+  border: 'none',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  gap: '12px',
+  padding: '0 12px',
+});
+
+export const librarySearchInputGroupIcon= style({
+    flex: '0',
+})
