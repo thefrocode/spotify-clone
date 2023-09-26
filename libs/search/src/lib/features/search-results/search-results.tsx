@@ -2,6 +2,7 @@ import {
   Button,
   Card,
   Container,
+  flex,
   List,
   navbarLibraryCategories,
 } from '@spotify-clone/ui';
@@ -17,7 +18,7 @@ import {
 } from '../../search.css';
 export function SearchResults() {
   const { data, top_result } = useSearch();
-  console.log(data?.tracks?.items,top_result);
+  console.log(data?.tracks?.items, top_result);
   return (
     <div className="search--result">
       <ul className={`${navbarLibraryCategories}`}>
@@ -26,7 +27,7 @@ export function SearchResults() {
         })}
       </ul>
       <List flex={1}>
-      <div>
+        <div>
           <h2>Top Result</h2>
           <Container flexDirection="column" backgroundColor="#242424" gap="8px">
             <img
@@ -43,28 +44,25 @@ export function SearchResults() {
         </div>
         <div>
           <h2>Songs</h2>
-          <div className="result--song-list">
+          <List direction="column" justifyContent="between"
+          childStyles={{
+            justifyContent: 'between',
+          }}>
             {data &&
               data.tracks &&
               data?.tracks?.items.map((item, index) => {
                 return (
-                  <div key={index} className="result--song-list-item">
-                    <img
-                      src={item.album.images[1].url}
-                      alt="Alt"
-                      className="result--song-list-image"
-                    />
-                    <div className="result--song-list-desc">
-                      <p>{item.name}</p>
-                      <span>{item.artists[0].name}</span>
-                    </div>
-                    <span className="result--song-list-time">
-                      {millisecondsToMinutesAndSeconds(item.duration_ms)}
-                    </span>
-                  </div>
+                  <Card
+                    imgSrc={item.album.images[1].url}
+                    title={item.name}
+                    description={item.artists[0].name}
+                    type="track"
+                    time={millisecondsToMinutesAndSeconds(item.duration_ms)}
+                    flexDirection="row"
+                  />
                 );
               })}
-          </div>
+          </List>
         </div>
       </List>
       <div className={`${resultList}`}>
@@ -110,7 +108,7 @@ export function SearchResults() {
         </div>
       </div>
       <h2>Artists</h2>
-      <div className="result--list">
+      <List gap="8">
         {data &&
           data.artists &&
           data.artists.items?.map((item, index) => {
@@ -124,9 +122,9 @@ export function SearchResults() {
               />
             );
           })}
-      </div>
+      </List>
       <h2>Albums</h2>
-      <div className="result--list">
+      <List>
         {data &&
           data.albums &&
           data.albums.items?.map((item) => {
@@ -139,7 +137,7 @@ export function SearchResults() {
               />
             );
           })}
-      </div>
+      </List>
     </div>
   );
 }

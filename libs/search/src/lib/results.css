@@ -45,67 +45,12 @@
     color: #b3b3b3;
 }
 
-.result--list{
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    justify-content: space-between;
-    padding: 0 8px;
-}
 
-.result--artist-card, .result--album-card{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    background-color: #181818;
-    padding: 16px;	
-    flex: 1;
-    align-items: center;
-}
 
-.result--artist-card > img{
-    width: 148px;
-    height: 148px;
-    border-radius: 50%;
-}
 
-.result--artist-desc, .result--album-desc{
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    gap: 8px;
-    width: 100%;
-}
-.result--artist-desc > p{
-    font-weight: 600;
-}
-.result--artist-desc > span{
-    color: #b3b3b3;
-    font-weight: 600;
-    margin: 0;
-}
 
-.result--album-card > img{
-    width: 148px;
-    height: 148px;
-    border-radius: 10px;
-}
 
-.result--album-desc > p{
-    font-weight: 600;
-    margin: 0;
-    max-width: 150px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 
-}
-.result--album-desc > span{
-    color: #b3b3b3;
-    font-weight: 600;
-    margin: 0;
-    max-width: 150px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+
+
+

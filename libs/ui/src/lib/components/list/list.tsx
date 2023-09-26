@@ -9,6 +9,10 @@ interface ListProps {
   gap?: string;
   margin?: string;
   width?: string;
+  justifyContent?: 'center' | 'end' | 'start' | 'between' | 'around' | 'evenly';
+  childStyles?: {
+    justifyContent?: 'center' | 'end' | 'start' | 'between' | 'around' | 'evenly';
+  }
 }
 
 export function List({
@@ -20,13 +24,13 @@ export function List({
   gap,
   margin,
   width,
+  justifyContent,
+  childStyles
 }: ListProps) {
   // Map over children and apply any additional styles
   const childrenWithStyles = React.Children.map(children, (child, index) => {
     // You can apply additional styles to each child element here if needed
-    const childStyles = {
-      // Add any child-specific styles here
-    };
+    
 
     return (
       <div
@@ -34,6 +38,7 @@ export function List({
         className={styles.listItem({
           flex,
         })}
+        style={childStyles}
       >
         {child}
       </div>
@@ -44,6 +49,7 @@ export function List({
       className={styles.list({
         direction,
         display,
+        justifyContent,
       })}
       style={{ backgroundColor, gap, margin, width }}
     >
