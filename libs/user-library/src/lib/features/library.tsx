@@ -1,17 +1,10 @@
-import {
-  navbarLibrary,
-  navbarLibraryButton,
-  navbarLibraryCategories,
-  navbarLibrarySearch,
-  navbarLibrarySearchSelect,
-  navbarLibraryList,
-} from '@spotify-clone/ui';
 import { Container, Button, Plus, Search, Library } from '@spotify-clone/ui';
 import { useUserLibrary } from '../data-access/user-library.store';
 import { LibraryItemCard } from '../ui/LibraryItemCard';
+import * as styles from './library.css';
 
 export function UserLibrary() {
-  const { library } = useUserLibrary();
+  const { library: userLibrary } = useUserLibrary();
 
   const items = [
     {
@@ -30,27 +23,27 @@ export function UserLibrary() {
 
   return (
     <Container flexDirection="column" margin="0px">
-      <div className={`${navbarLibrary}`}>
-        <button className={`${navbarLibraryButton}`}>
+      <div className={`${styles.library}`}>
+        <button className={`${styles.libraryButton}`}>
           <Library />
           Your Library
         </button>
         <Plus />
       </div>
-      <ul className={`${navbarLibraryCategories}`}>
+      <ul className={`${styles.libraryCategories}`}>
         {items.map((item) => {
           return <Button primary={true} label={item.title} key={item.id} />;
         })}
       </ul>
-      <div className={`${navbarLibrarySearch}`}>
+      <div className={`${styles.librarySearch}`}>
         <Search />
-        <select className={`${navbarLibrarySearchSelect}`}>
+        <select className={`${styles.librarySearchSelect}`}>
           <option value="1">Playlist</option>
           <option value="2">Album</option>
         </select>
       </div>
-      <div className={`${navbarLibraryList}`}>
-        {library.map((item) => {
+      <div className={`${styles.libraryList}`}>
+        {userLibrary.map((item) => {
           return <LibraryItemCard {...item} />;
         })}
       </div>

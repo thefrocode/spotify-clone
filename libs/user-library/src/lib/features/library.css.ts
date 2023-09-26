@@ -1,7 +1,7 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '../../styles/theme.css';
+import { vars } from '@spotify-clone/ui';
 
-export const navbarLibrary = style({
+export const library = style({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -15,7 +15,7 @@ export const navbarLibrary = style({
   },
 });
 
-export const navbarLibraryButton = style({
+export const libraryButton = style({
   display: 'flex',
   gap: '12px',
   alignItems: 'center',
@@ -25,24 +25,24 @@ export const navbarLibraryButton = style({
   fontWeight: vars.fonts.weight.bold,
 });
 
-export const navbarLibraryCategories = style({
+export const libraryCategories = style({
   display: 'flex',
   gap: '8px',
   paddingInlineStart: '0',
 });
-export const navbarLibrarySearch = style({
+export const librarySearch = style({
   display: 'flex',
   justifyContent: 'space-between',
 });
 
-export const navbarLibrarySearchSelect = style({
+export const librarySearchSelect = style({
   background: 'transparent',
   border: 'none',
   color: vars.colors.text.secondary,
   fontWeight: vars.fonts.weight.bold,
 });
 
-export const navbarLibraryList = style({
+export const libraryList = style({
   overflowY: 'hidden',
   overflowX: 'hidden',
   height: 'auto',

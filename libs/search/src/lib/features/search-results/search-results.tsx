@@ -1,11 +1,5 @@
-import {
-  Button,
-  Card,
-  Container,
-  flex,
-  List,
-  navbarLibraryCategories,
-} from '@spotify-clone/ui';
+import { Button, Card, Container, List } from '@spotify-clone/ui';
+import { libraryCategories } from './search-results.css';
 import { categories } from '@spotify-clone/shared';
 import { useSearch } from '../../data-access/search.store';
 import '../../results.css';
@@ -21,7 +15,7 @@ export function SearchResults() {
   console.log(data?.tracks?.items, top_result);
   return (
     <div className="search--result">
-      <ul className={`${navbarLibraryCategories}`}>
+      <ul className={`${libraryCategories}`}>
         {categories.map((item) => {
           return <Button primary={true} label={item.name} key={item.id} />;
         })}
@@ -44,10 +38,13 @@ export function SearchResults() {
         </div>
         <div>
           <h2>Songs</h2>
-          <List direction="column" justifyContent="between"
-          childStyles={{
-            justifyContent: 'between',
-          }}>
+          <List
+            direction="column"
+            justifyContent="between"
+            childStyles={{
+              justifyContent: 'between',
+            }}
+          >
             {data &&
               data.tracks &&
               data?.tracks?.items.map((item, index) => {
