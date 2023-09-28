@@ -11,4 +11,8 @@ export * from './next-track'
 export * from './previous-track'
 export * from './fifteen-forward'
 export * from './fifteen-back'
+export * from './now-playing'
+export * from './queue'
+export * from './connect-device'
 
+ 

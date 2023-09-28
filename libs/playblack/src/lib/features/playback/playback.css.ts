@@ -2,6 +2,8 @@ import { globalStyle, style } from "@vanilla-extract/css";
 
 export const playback= style({
     gridColumn: 'span 2 / span 2',
+    display: 'grid',
+    gridTemplateRows: '1fr'
 })
 
 export const cardTitleGroup = style({
@@ -21,6 +23,13 @@ export const playButton = style({
     backgroundColor: '#fff !important',
     borderRadius: '50%',
     padding: '8px'
+})
+
+export const playControlsTime=style({
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    justifySelf: 'center',
 })
 
 globalStyle(`${playbackControls}> button`, {
