@@ -1,6 +1,6 @@
 import { Container, Button, Plus, Search, Library } from '@spotify-clone/ui';
 import { useUserLibrary } from '../../data-access/user-library.store';
-import { LibraryItemCard } from '../../ui/LibraryItemCard';
+import { LibraryItemCard } from '../../ui/libraryItemCard';
 import { LibraryInput } from '../library-input/library-input';
 import * as styles from './library.css';
 

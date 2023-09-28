@@ -97,7 +97,7 @@ export const cardList = style({
 //   overflow: 'hidden',
 // });
 export const card = recipe({
-  base:{
+  base: {
     padding: '0.5rem',
     columnGap: '0.5rem',
   },
@@ -121,13 +121,13 @@ export const card = recipe({
         flexDirection: 'column',
       },
     },
-    wrap:{
-      wrap:{
+    wrap: {
+      wrap: {
         whiteSpace: 'normal',
       },
-      nowrap:{
+      nowrap: {
         whiteSpace: 'nowrap',
-      }
+      },
     },
     cols: {
       1: {
@@ -161,6 +161,26 @@ export const card = recipe({
       },
       card: {
         gridTemplateRows: '24px 24px',
+      },
+    },
+    justifyContent: {
+      start: {
+        justifyContent: 'start',
+      },
+      end: {
+        justifyContent: 'end',
+      },
+      center: {
+        justifyContent: 'center',
+      },
+      between: {
+        justifyContent: 'space-between',
+      },
+      around: {
+        justifyContent: 'space-around',
+      },
+      evenly: {
+        justifyContent: 'space-evenly',
       },
     },
   },
@@ -238,6 +258,9 @@ export const cardImage = recipe({
       track: {
         borderRadius: '5px',
       },
+      show: {
+        borderRadius: '5px',
+      },
     },
   },
 });
@@ -251,10 +274,29 @@ export const cardTitle = styleVariants({
   },
 });
 
-export const cardDescription = style({
-  fontSize: vars.fonts.size.small,
-  color: vars.colors.text.subdued,
-  justifyContent: 'left',
-  alignItems: 'center',
-  display: 'flex',
+export const cardDescription = recipe({
+  base: {
+    color: vars.colors.text.subdued,
+    justifyContent: 'left',
+    alignItems: 'center',
+    display: 'flex',
+  },
+  variants: {
+    fontSize: {
+      sm: {
+        fontSize: vars.fonts.size.small,
+      },
+      xs: {
+        fontSize: vars.fonts.size.extraSmall,
+      },
+    },
+  },
+  defaultVariants: {
+    fontSize: 'sm',
+  },
 });
+// export const cardContentGroup = recipe({
+//   variants: {
+//     align
+//   },
+// });

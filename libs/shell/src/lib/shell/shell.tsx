@@ -1,5 +1,5 @@
 import { Container } from '@spotify-clone/ui';
-import { Playback } from '@spotify-clone/ui';
+import { Playback } from '@spotify-clone/playback';
 import { MainView } from '../mainview/mainview';
 import { Navbar } from '../navbar/navbar';
 

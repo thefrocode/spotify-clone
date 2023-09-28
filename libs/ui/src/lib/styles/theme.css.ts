@@ -30,6 +30,7 @@ export const vars = createGlobalTheme(':root', {
     accent: '#212121',
     tertiary: '#121212',
     subdued: '#181818',
+    fill:'#FFFFFFB3',
     text: {
       primary: '#ffffff',
       secondary: '#535353',

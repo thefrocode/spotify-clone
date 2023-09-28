@@ -5,19 +5,27 @@ interface CardProps {
   children: React.ReactNode;
   display?: 'grid' | 'flex';
   flexDirection?: 'row' | 'column';
+  justifyContent?: 'between' | 'center' | 'start' | 'end';
+  alignContent?: 'between' | 'center' | 'start' | 'end';
 }
 
 interface CardImageProps {
   imgSrc: string;
-  type: 'artist' | 'album' | 'playlist' | 'track';
+  type: 'artist' | 'album' | 'playlist' | 'track' | 'show';
   direction: 'row' | 'column';
 }
-export function Card({ children, display, flexDirection }: CardProps) {
+
+interface CardDescriptionProps {
+  children: React.ReactNode;
+  fontSize?: 'xs'|'sm';
+}
+export function Card({ children, display, flexDirection, justifyContent, alignContent }: CardProps) {
   return (
     <div
       className={styles.card({
         display,
         flexDirection,
+        justifyContent,
         cols: 'card',
         rows: 'card',
         wrap: 'nowrap',
@@ -43,6 +51,8 @@ export function CardTitle({ title }: { title?: string }) {
   return <div className={styles.cardTitle['library']}>{title}</div>;
 }
 
-export function CardDescription({children }: { children: React.ReactNode}) {
-  return <div className={styles.cardDescription}>{children}</div>;
+export function CardDescription({children, fontSize }: CardDescriptionProps) {
+  return <div className={styles.cardDescription({
+    fontSize
+  })}>{children}</div>;
 }
